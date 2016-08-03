@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :carts
   resources :products
   get 'store/index'
   root 'store#index', as: 'store'
