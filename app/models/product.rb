@@ -1,4 +1,14 @@
 class Product < ActiveRecord::Base
+	# Callbacks
+	before_destroy :ensure_not_referenced_by_any_line_item
+
+	# Relacionamentos
+	has_many :list_items
+
+
+
+
+	# Validações
 	validates :title, :description, :image_url, presence: true
 	validates :price, numericality: { greater_than_or_equal_to: 0.01 } 
 	validates :title, uniqueness: true
@@ -7,7 +17,22 @@ class Product < ActiveRecord::Base
 		message: 'must be a URL for GIF, JPG or PNG image.'
 	}
 
+	# Métodos de classe.
+
 	def self.latest
 		Product.order(:updated_at).last
+	end
+
+	# Métodos comuns
+
+	private
+
+	def ensure_not_referenced_by_any_line_item
+		if line_items.empty?
+			true
+		else
+			errors.add(:base, 'Line items present')
+			false
+		end
 	end
 end
