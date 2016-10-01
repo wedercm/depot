@@ -9,23 +9,33 @@
 </head>
 
 <body class='<%= controller.controller_name %>'>
-	<div id="banner">
-		<%= image_tag("logo.png") %>
-		<%= @page_title || "Pragmatic Bookshelf" %>
-	</div>
-	
-	<div id="columns">
-		<div id="side">
-			<ul>
-				<li> <%= link_to 'Home', '/' %></li>
-				<li><a href="http://www..../faq">Questions</a></li>
-				<li><a href="http://www..../news">News</a></li>
-				<li><a href="http://www..../contact">Contact</a></li>
-			</ul>
-		</div>
-		<div id="main">
-			<%= yield %>
-		</div>
-	</div>
+  <div class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= button_tag(type: :button, class: 'navbar-toggle collapsed',
+          data: { toggle: :collapse, target: '#navbar_layout' }) do %>
+          <%= content_tag(:span, '', class: 'icon-bar') %>
+          <%= content_tag(:span, '', class: 'icon-bar') %>
+          <%= content_tag(:span, '', class: 'icon-bar') %>
+        <% end %>
+
+        <%= link_to root_path, class: 'navbar-brand text-default-color text-uppercase' do %>
+          <strong> Pragmatic Bookshelf </strong>
+        <% end %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar_layout">
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%= link_to 'Home', root_path  %></li>
+          <li> <%= link_to 'Questions', 'http://www..../faq' %></li>
+          <li> <%= link_to 'News', 'http://www..../news' %></li>
+          <li> <%= link_to 'Contact', 'http://www..../contact' %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

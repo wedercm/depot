@@ -14,6 +14,17 @@
  *= require_self
  */
 
+$icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+
+* {
+  p {
+    font-size: 1.8em;
+    line-height: normal;
+  }
+}
+
 #banner {
   background: #9c9;
   padding: 10px;
@@ -62,4 +73,16 @@
       }
     }
   }
+}
+
+.border-separator {
+  border: 3px solid #ECF0F1;
+}
+
+.flex {
+  display: flex;
+}
+
+.no-padding {
+  padding: 1px;
 }

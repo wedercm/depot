@@ -2,6 +2,26 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
+<div id="id-modal-cart" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="text-uppercase text-center text-default-inverse">Your <strong>Pragmatic Cart</strong></h4>
+      </div>
+
+      <div class="modal-body">
+        
+      </div>
+
+      <div class="modal-footer">
+        <p class="text-default pull-left"><strong>Itens in your cart.</strong></p>
+        <%= button_tag('Sair', type: :button, class: 'btn btn-default pull-rigth',
+          data: {dismiss: 'modal'}) %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <h1>Your Pragmatic Catalog</h1>
 
 <% cache ['store', Product.latest] do %>
@@ -15,10 +35,27 @@
         <%= sanitize(product.description) %>
 
         <div class="price_line">
-          <span class="price"><%= number_to_currency(product.price) %></span>
-          <%= button_to 'Add to Cart', line_items_path(product_id: product.id) %>
+          <span class="label label-primary"><%= number_to_currency(product.price) %></span>
+            <%= button_to(line_items_path(product_id: product.id),
+            class: 'btn btn-default',
+            remote: true,
+            data: {toggle: 'modal', target: '#id-modal-cart'}) do %>
+             ADD TO CART
+             <%= content_tag :span, '', class: 'glyphicon glyphicon-shopping-cart' %>
+            <% end %>
         </div>
       </div>
     <% end %>
   <% end %>
 <% end %>
+<button class="btn btn-default">O RATO ROEU</button>
+<button class="btn btn-success">A ROUPA</button>
+<button class="btn btn-warning">DO</button>
+<button class="btn btn-primary">REI</button>
+<button class="btn btn-danger">DE</button>
+<button class="btn btn-info">ROMA</button>
+<script type="text/javascript">
+  // $(document).ready( function(){
+  //   $("#id-modal-cart").addClass("fade in").show();
+  // });
+</script>
