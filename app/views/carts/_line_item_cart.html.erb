@@ -1,20 +1,23 @@
 <div class="container-fluid">
-  <% @cart.line_items.each do |line_item| %>
-      <div class="row row-eq-height <%= cycle('odd','even') %>">
-        <div class="col-lg-3 col-md-3 col-sm-12 border-separator no-padding">
+  <% qtd_line_items = @cart.line_items.size %>
+  <% @cart.line_items.each_with_index do |line_item, index| %>
+      <div class="row row-eq-height <%= cycle('odd','even') %>
+        <%= last_and_first(qtd_line_items, index) %>">
+
+        <div class="col col-lg-2 col-md-3 col-sm-12 no-padding flex">
           <%= image_tag(line_item.product.image_url, class:'img-responsive') %>
         </div>
 
-        <div class="col-lg-6 col-md-6 col-sm-12 border-separator">
-          <p> <%= link_to(line_item.product.title,line_item.product) %></p>
-        </div>
-
-        <div class="col-sm-12 col-lg-3 col-md-3 border-separator">
-          <p><strong>Qtd: </strong><%= line_item.quantity %> </p>
+        <div class="col col-lg-10 col-md-6 col-sm-12 flex">
+          <p class="text-uppercase text-center"> 
+            <strong>
+              <%= link_to(line_item.product.title,line_item.product, class: 'link-inverse') %>
+            </strong>
+          </p>
+          <p class="text-uppercase text-center">
+            <strong> <%= number_to_currency(line_item.valor_total) %> </strong>
+          </p>
         </div>
       </div> 
   <% end %>
-    <div class="col-xs-4 pull-right">
-        <h3><strong>Total:</strong><%= number_to_currency(@cart.valor_total) %></h3>
-    </div>
 </div>

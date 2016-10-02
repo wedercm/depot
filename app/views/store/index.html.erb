@@ -10,13 +10,20 @@
       </div>
 
       <div class="modal-body">
-        
+
       </div>
 
       <div class="modal-footer">
-        <p class="text-default pull-left"><strong>Itens in your cart.</strong></p>
-        <%= button_tag('Sair', type: :button, class: 'btn btn-default pull-rigth',
-          data: {dismiss: 'modal'}) %>
+        <div class="container-fluid">
+          <div class="row row-eq-height">
+            <div class="col col-lg-8">
+              <p class="js-total-items-carrinho text-default-inverse pull-left"></p>
+              <p class="js-valor-total-carrinho text-default-inverse"></p>
+            </div>
+              <%= button_tag('CHECKOUT', type: :button, class: 'btn btn-default pull-rigth col-lg-4',
+                data: {dismiss: 'modal'}) %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -25,37 +32,32 @@
 <h1>Your Pragmatic Catalog</h1>
 
 <% cache ['store', Product.latest] do %>
-  <% @products.each do |product| %>
-    <% cache ['entry', product] do %>
-      <div class="entry">
-        <%= image_tag(product.image_url) %>
+    <div class="container-fluid">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col col-lg-3 col-md-6 col-sm-12">
+            <% cache ['entry', product] do %>
+              <div>
+                <%= image_tag(product.image_url) %>
 
-        <h3><%= product.title %></h3>
+                <h3><%= product.title %></h3>
 
-        <%= sanitize(product.description) %>
+                <%= sanitize(product.description) %>
 
-        <div class="price_line">
-          <span class="label label-primary"><%= number_to_currency(product.price) %></span>
-            <%= button_to(line_items_path(product_id: product.id),
-            class: 'btn btn-default',
-            remote: true,
-            data: {toggle: 'modal', target: '#id-modal-cart'}) do %>
-             ADD TO CART
-             <%= content_tag :span, '', class: 'glyphicon glyphicon-shopping-cart' %>
+                <div>
+                  <span class="label label-primary"><%= number_to_currency(product.price) %></span>
+                    <%= button_to(line_items_path(product_id: product.id),
+                    class: 'btn btn-default',
+                    remote: true,
+                    data: {toggle: 'modal', target: '#id-modal-cart'}) do %>
+                     ADD TO CART
+                     <%= content_tag :span, '', class: 'glyphicon glyphicon-shopping-cart' %>
+                    <% end %>
+                </div>
+              </div>
             <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  <% end %>
+    </div>
 <% end %>
-<button class="btn btn-default">O RATO ROEU</button>
-<button class="btn btn-success">A ROUPA</button>
-<button class="btn btn-warning">DO</button>
-<button class="btn btn-primary">REI</button>
-<button class="btn btn-danger">DE</button>
-<button class="btn btn-info">ROMA</button>
-<script type="text/javascript">
-  // $(document).ready( function(){
-  //   $("#id-modal-cart").addClass("fade in").show();
-  // });
-</script>

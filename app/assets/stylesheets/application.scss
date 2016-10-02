@@ -19,9 +19,11 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 
 * {
+  font-family: 'Lato';
   p {
     font-size: 1.8em;
     line-height: normal;
+    font-family: 'Lato';
   }
 }
 
@@ -29,7 +31,6 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   background: #9c9;
   padding: 10px;
   border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
 
@@ -44,7 +45,6 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   padding: 1em;
   margin-bottom: 2em;
   background-color: #f0f0f0;
-  font: bold smaller sans-serif;
 }
 
 #columns {
@@ -75,14 +75,105 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   }
 }
 
-.border-separator {
-  border: 3px solid #ECF0F1;
-}
-
 .flex {
   display: flex;
 }
 
 .no-padding {
   padding: 1px;
+}
+
+.link {
+  @extend .links;
+  color: #2C3E50;
+
+  &:hover{
+    color: #2C3E50;
+  }
+
+  &:visited{
+    color: #2C3E50;
+  }
+}
+
+.link-inverse {
+  @extend .links;
+  color: #ECF0F1;
+
+  &:hover{
+    color: #ECF0F1;
+  }
+
+   &:visited{
+    color: #ECF0F1;
+  }
+}
+
+.links {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+    background-color: transparent;
+  }
+}
+$background-modal : #16a085;
+.modal-content {
+    padding: 10px;
+    background-color: $background-modal;
+
+  .modal-body {
+    padding: 5px 0px;
+    background-color: $background-modal;
+
+    .container-fluid{
+      
+      .row {
+        margin-bottom: 5px;
+        border-radius: 5px;
+        padding: 5px;
+        background: rgba(26,188,156,0.4);
+      }
+
+      .row.first {
+        margin-bottom: 5px;
+        border-radius: 0 0 5px 5px;
+      }
+
+      .row.last {
+        margin-bottom: 0;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .col {
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .modal-footer {
+    justify-content: space-between;
+    background: #2C3E50;
+    padding: 0;
+    .row {
+      p {
+        margin: 0;
+      }
+      .btn {
+        border-radius: 0;
+      }
+    }
+
+    .container-fluid {
+      margin: 0;
+
+      .col {
+        margin: 15px 0;
+      }
+    }
+  }
 }

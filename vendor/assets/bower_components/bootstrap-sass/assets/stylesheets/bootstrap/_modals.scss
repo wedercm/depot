@@ -95,8 +95,6 @@
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
   position: relative;
-  padding: $modal-inner-padding;
-  background: #ECF0F1;
 }
 
 // Footer (for actions)
@@ -104,12 +102,8 @@
   padding: $modal-inner-padding;
   text-align: right; // right align buttons
   border-radius: 0px 0px 5px 5px;
-  background: #ECF0F1;
+  background: #2C3E50;
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
-
-  p {
-    @extends .text-default
-  }
   // Properly space out buttons
   .btn + .btn {
     margin-left: 5px;
