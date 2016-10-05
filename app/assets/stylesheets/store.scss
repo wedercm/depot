@@ -1,10 +1,68 @@
 .store {
   background: #004358;
+  
+  .navbar-inverse {
+    margin-bottom: 0;
 
-  // .row {
-  //   justify-content: space-between;
-  // }
-  // .col {
-  //   background: #ECF0F1;
-  // }
+    .navbar-nav {
+      li {
+        a {
+          color: #ECF0F1;
+          font-size: 1.5em;
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration: uppercase;
+            color: #ECF0F1;
+            background: rgba(231,76,60,0.5);
+          }
+        }
+      }
+    }
+  } 
+  #home-carousel-id {
+    .carousel-inner{
+      .item {
+        img {
+          margin: 0 auto;
+          height: 600px;
+          width: 100%;
+        }
+      }
+    }
+
+    .carousel-control {
+      z-index: 1;
+      background: none;
+    }
+
+    .sobrepoem-carousel {
+      background: rgba(44, 62, 80,0.5);
+      position: absolute;
+      height: 600px;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+  .produtos {
+    .col {
+      background: #ECF0F1;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      
+
+      .btn {
+        border-radius: 0;
+        width: 100%;
+      }
+    }
+
+    .row {
+    }
+  }
 }
