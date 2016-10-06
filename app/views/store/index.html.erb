@@ -1,5 +1,15 @@
 <% if notice %>
-  <p id="notice"><%= notice %></p>
+  <div class="alert alert-success">
+    <p><strong><%= notice %></strong></p>
+    <span class="close glyphicon glyphicon-remove" data-dismiss="alert" aria-label="close"></span>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div class="alert alert-danger">
+    <p><strong><%= alert %></strong></p>
+    <span class="close glyphicon glyphicon-remove" data-dismiss="alert" aria-label="close"></span>
+  </div>
 <% end %>
 
 <div id="id-modal-cart" class="modal fade">

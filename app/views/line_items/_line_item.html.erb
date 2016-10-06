@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <%if @current_item == line_item %>
+    <div class=" js-current-item row row-eq-height <%= last_and_first(line_item_iteration) %>">
+  <% else %>
+    <div class="row row-eq-height <%= last_and_first(line_item_iteration) %>">
+  <% end %>
+    <div class="col col-lg-2 col-md-3 col-sm-12 no-padding flex">
+      <%= image_tag(line_item.product.image_url, class:'img-responsive') %>
+    </div>
+
+    <div class="col col-lg-10 col-md-6 col-sm-12 flex">
+      <p class="text-uppercase text-center"> 
+        <strong>
+          <%= link_to(line_item.product.title,line_item.product, class: 'link-inverse') %>
+        </strong>
+      </p>
+      <p class="text-uppercase text-center">
+        <strong> <%= number_to_currency(line_item.valor_total) %> </strong>
+      </p>
+    </div>
+  </div>
+</div>

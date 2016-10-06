@@ -1,5 +1,6 @@
-$("#id-modal-cart").find(".modal-body").html("<%=j render partial: 'carts/line_item_cart' %>")
+$("#id-modal-cart").find(".modal-body").html("<%=j render @cart.line_items %>")
 $("#id-modal-cart").find(".js-valor-total-carrinho")
                    .html("<strong><%= number_to_currency(@cart.valor_total) %></strong>")
 $("#id-modal-cart").find(".js-total-items-carrinho")
                    .html("<strong><%= @cart.total_items %> items in your cart.</strong>")
+$('.js-current-item').css({'background-color':'red'}).animate({'background-color':'rgba(26, 188, 156, 0.4)'}, 2000);

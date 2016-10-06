@@ -1,3 +1,37 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$background-body : #16a085;
+
+.carts {
+  padding: 5px 0px;
+  background-color: $background-body;
+
+  .container-fluid{
+    
+    .row {
+      margin-bottom: 5px;
+      border-radius: 5px;
+      padding: 5px;
+      background: rgba(26,188,156,0.4);
+    }
+
+    .row.first {
+      margin-bottom: 5px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .row.last {
+      margin-bottom: 0;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .col {
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

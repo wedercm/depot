@@ -1,6 +1,11 @@
 module LineItemsHelper
-  def last_and_first(qtd_line_items, index)
-    return 'first' if index.zero? 
-    qtd_line_items-1 == index ? 'last' : ''
+  def last_and_first(line_item_iteration)
+    if line_item_iteration.first?
+      'first'
+    elsif line_item_iteration.last?
+      'last' 
+    else
+      ''
+    end
   end
 end
